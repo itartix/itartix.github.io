@@ -1,0 +1,66 @@
+@import '../../mixins';
+
+.sidebar-button {
+    --menu-icon-width: 24px;
+    --menu-icon-height: 16px;
+    --menu-icon-line-width: 5px;
+
+    .clear-btn();
+    .transit(opacity);
+    display: block;
+    color: var(--black);
+    opacity: var(--surface-grey-color-opacity); // если использовать --surface-grey-color по аналогии с text-button в шапке, на пересечении линий в стейте крестика появляется квадрат из-за прозрачности цвета
+
+    @hoverRuleset: {
+        opacity: var(--surface-grey-hover-color-opacity);
+    }
+
+    @activeRuleset: {
+        opacity: var(--surface-grey-active-color-opacity);
+    }
+
+    .hover(@hoverRuleset, true, @activeRuleset);
+
+    &__icon {
+        display: block;
+        width: var(--menu-icon-width);
+        height: var(--menu-icon-height);
+        position: relative;
+    }
+
+    i {
+        .transit(transform);
+        width: var(--menu-icon-width);
+        height: var(--menu-icon-line-width);
+        position: absolute;
+        top: calc(50% - var(--menu-icon-line-width) / 2);
+        left: 0;
+        background: currentColor;
+        will-change: transform;
+        border-radius: 2px;
+
+        &:nth-child(1) {
+            transform: translateY(~'round(-.5 * var(--menu-icon-height), 1px)');
+        }
+
+        &:nth-child(3) {
+            transform: translateY(~'round(.5 * var(--menu-icon-height), 1px)');
+        }
+    }
+
+    &--open {
+        i {
+            &:nth-child(1) {
+                transform: rotate(45deg) scaleX(1.2);
+            }
+
+            &:nth-child(2) {
+                transform: scale(0);
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg) scaleX(1.2);
+            }
+        }
+    }
+}

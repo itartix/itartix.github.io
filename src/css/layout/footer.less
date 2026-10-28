@@ -1,0 +1,28 @@
+@import '../mixins';
+
+/**
+ * Подвал сайта
+**/
+.footer {
+    padding: var(--layout-section-padding);
+
+    &__title {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    &__text {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1;
+    }
+
+    @media @mediaLayoutDesktop {
+        border-top: 1px solid var(--stroke-color);
+    }
+
+    @media @mediaLayoutMobile {
+        background: var(--blue);
+    }
+}

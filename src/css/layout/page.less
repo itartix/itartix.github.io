@@ -1,0 +1,60 @@
+@import '../mixins';
+
+/**
+ * Стили шаблона страницы
+**/
+.page {
+    --sidebar-width: 300px;
+
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--sidebar-width) calc(100% - var(--sidebar-width)); // calc вместо 1fr предотвращает поломку сетки при большом основном контенте
+    grid-template-rows: max-content 1fr max-content;
+    grid-template-areas: 'sidebar header' 'sidebar main' 'footer footer';
+    background: var(--purple-light);
+    max-width: 1900px; // Ограничиваем ширину, чтобы страницу не разносило на ультра широких мониторах
+    margin: 0 auto;
+
+    &__header {
+        grid-area: header;
+    }
+
+    &__sidebar {
+        grid-area: sidebar;
+    }
+
+    &__main {
+        grid-area: main;
+    }
+
+    &__footer {
+        grid-area: footer;
+    }
+
+    @media @mediaLayoutMobile {
+        grid-template-columns: 100%;
+        grid-template-areas: 'header' 'main' 'footer';
+        background: var(--blue-light);
+
+        &__header {
+            position: sticky;
+            top: 0;
+            z-index: 90;
+        }
+
+        &__sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 100;
+            width: min(100%, 260px);
+        }
+    }
+
+    @media @mediaXs {
+        &__sidebar {
+            width: 100%;
+        }
+    }
+}

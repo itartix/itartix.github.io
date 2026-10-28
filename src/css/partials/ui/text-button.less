@@ -1,0 +1,37 @@
+@import "../../mixins";
+
+/**
+ * Кнопки, содержащие текст и / или иконку на прозрачном фоне
+ */
+
+.text-button {
+    .clear-btn();
+    .transit(color);
+    display: flex;
+    align-items: center;
+    color: var(--surface-grey-color);
+
+    @hoverRuleset: {
+        color: var(--surface-grey-hover-color);
+    }
+
+    @activeRuleset: {
+        color: var(--surface-grey-active-color);
+    }
+
+    .hover(@hoverRuleset, true, @activeRuleset);
+
+    &__icon {
+        height: 20px;
+        width: 20px;
+        background: currentColor;
+
+        &--circle {
+            border-radius: 50%;
+        }
+
+        &--square {
+            border-radius: 4px;
+        }
+    }
+}

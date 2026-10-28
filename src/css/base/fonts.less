@@ -1,0 +1,19 @@
+/****
+ * Подключение шрифтов
+ ****/
+
+.variable-font(@fontName, @fontFileName, @style: normal, @range: '', @weightMin: 100, @weightMax: 900) {
+    @font-face {
+        font-family: @fontName;
+        src: url('../../fonts/@{fontFileName}.woff2') format('woff2');
+        font-style: @style;
+        font-display: swap;
+        font-weight: @weightMin @weightMax;
+
+        & when(@range) {
+            unicode-range: @range;
+        }
+    }
+}
+
+.variable-font('Roboto', 'Roboto-Variable', normal);

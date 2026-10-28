@@ -1,0 +1,186 @@
+/**
+ * LESS переменные и миксины
+ **/
+
+// Медиа
+@screenXs: 480px;
+@screenSm: 768px;
+@screenMd: 1024px;
+@screenLg: 1240px;
+@screenXl: 1440px;
+
+@screenXsMax: (@screenXs - 1);
+@screenSmMax: (@screenSm - 1);
+@screenMdMax: (@screenMd - 1);
+@screenLgMax: (@screenLg - 1);
+@screenXlMax: (@screenXl - 1);
+
+@mediaXs: ~'(max-width: @{screenXsMax})';
+@mediaSm: ~'(max-width: @{screenSmMax})';
+@mediaMd: ~'(max-width: @{screenMdMax})';
+@mediaLg: ~'(max-width: @{screenLgMax})';
+@mediaXl: ~'(max-width: @{screenXlMax})';
+
+@mediaMoreXs: ~'(min-width: @{screenXs})';
+@mediaMoreSm: ~'(min-width: @{screenSm})';
+@mediaMoreMd: ~'(min-width: @{screenMd})';
+@mediaMoreLg: ~'(min-width: @{screenLg})';
+@mediaMoreXl: ~'(min-width: @{screenXl})';
+
+@mediaHover: ~'(pointer: fine), (-ms-high-contrast: none), (-ms-high-contrast: active)';
+@mediaNotHover: ~'(pointer: coarse)';
+
+@mediaLayoutDesktop: @mediaMoreMd;
+@mediaLayoutMobile: @mediaMd;
+
+// Сетка
+@columnsCount: 12;
+
+// Очистка дефолтных стилей
+.clear-link(@color: currentColor) {
+    color: @color;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.clear-btn(@color: currentColor) {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+    text-align: inherit;
+    -webkit-tap-highlight-color: transparent;
+    color: @color;
+}
+
+// Контент
+.container(@size) {
+    height: @size;
+    width: @size;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+// Обрезка многоточием текста
+.line-clamp(@line-count: 3) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    //noinspection CssUnknownProperty
+    -webkit-line-clamp: @line-count;
+}
+
+ // Миксин для стейтов: hover, active, focus (с клавиатуры)
+ // Только для десктопа (на мобилке hover реагирует на первый тап, мешает пользователю)
+ // В параметрах принимает набор правил или true / false
+ // Если передать true, применит стили по умолчанию
+.hover(@hoverRuleset: true, @focusRuleset: false, @activeRuleset: false) {
+    @media @mediaHover {
+        & when not (@hoverRuleset = false) {
+            &:hover {
+                & when (@hoverRuleset = true) {
+                    opacity: .8;
+                }
+
+                & when not (@hoverRuleset = true) {
+                    @hoverRuleset();
+                }
+            }
+        }
+
+        & when not (@focusRuleset = false) {
+            &:focus-visible {
+                & when (@focusRuleset = true) {
+                    outline: 1px solid currentColor;
+                }
+
+                & when not (@focusRuleset = true) {
+                    @focusRuleset();
+                }
+            }
+        }
+
+        & when not (@activeRuleset = false) {
+            &:active {
+                & when (@activeRuleset = true) {
+                    opacity: .6;
+                }
+
+                & when not (@activeRuleset = true) {
+                    @activeRuleset();
+                }
+            }
+        }
+    }
+}
+
+// Transition для анимаций
+.transit(@prop: all, @time: var(--transition-duration), @ease: var(--transition-timing-function)) {
+    transition-property: e(@prop);
+    transition-duration: @time;
+    transition-timing-function: @ease;
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+// Сетка
+// Миксины, которые помогают устанавливать свойства с привязкой к сетке: задать грид, установить ширину блока и пр.
+// Реализуется через calc вместо использования fr, благодаря этому большой контент в колонках не разносит сетку
+@column: 100%;
+
+.column(@count: 1, @total: @columnsCount, @columnGap: var(--grid-gap)) {
+    @column: calc(@count * (100% - @columnGap * (@total - 1)) / @total + @columnGap * (@count - 1));
+}
+
+// Задает CSS переменную, удобно для использования в свойствах типа grid-template-columns: var(--sidebar-col) var(--main-col)
+.column-property(@prop: '', @count: 1, @total: @columnsCount, @columnGap: var(--grid-gap)) {
+    .column(@count, @total, @columnGap);
+        @{prop}: @column;
+}
+
+// Задает грид
+.grid(@total: @columnsCount, @columnGap: var(--grid-gap), @rowGap: @columnGap) {
+    .template-columns(@total, @columnGap);
+    display: grid;
+    grid-column-gap: @columnGap;
+    grid-row-gap: @rowGap;
+}
+
+// Используется для изменения grid-template-columns у .grid(), например, на адаптиве
+.template-columns(@total: @columnsCount, @columnGap: var(--grid-gap)) {
+    .column(1, @total, @columnGap);
+    grid-template-columns: repeat(@total, @column);
+}
+
+// Используется, если нужно установить блоку ширину по сетке без использования grid
+.column-width(@count: 1, @total: @columnsCount, @gap: var(--grid-gap)) {
+    .column(@count, @total, @gap);
+    width: @column;
+}
+
+// Скрывает недозаполненный ряд сетки
+// выбираем последние n - 1 карточки (n - количество колонок в сетке)
+// если какая-то из этих карточек первая, значит на полный ряд не хватило, надо скрыть эту карточку + последующие
+.hide-last-row(@selector, @columnsCount) {
+    @checkCount: @columnsCount - 1;
+
+    @{selector} {
+        // Скрываем последний ряд карточек, если не хватило на полноценный ряд сетки
+        &:nth-last-child(-n+@{checkCount}):nth-child(@{columnsCount}n+1) {
+            &, & ~ @{selector} {
+                display: none;
+            }
+        }
+    }
+}

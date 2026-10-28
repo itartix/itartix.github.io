@@ -1,0 +1,40 @@
+@import "../../mixins";
+
+/**
+ * Карточка на главной
+ */
+.card {
+    --card-height: 128px;
+    --card-padding: 8px;
+
+    .clear-link();
+    .transit(background-color);
+    background: var(--surface-grey-color);
+    border-radius: var(--card-padding);
+    box-sizing: border-box;
+    height: var(--card-height);
+    padding: var(--card-padding);
+    overflow: hidden;
+
+    @focusRuleset: {
+        background-color: var(--surface-grey-hover-color);
+    }
+
+    @activeRuleset: {
+        background-color: var(--surface-grey-active-color);
+    }
+
+    .hover(@focusRuleset, true, @activeRuleset);
+
+    &__content {
+        --line-height: 1;
+        --font-size: 14px;
+        --content-height: calc(var(--card-height) - var(--card-padding) * 2);
+        --lines-count: calc(var(--content-height) / (var(--font-size) * var(--line-height)));
+
+        .line-clamp(var(--lines-count));
+
+        font-size: var(--font-size);
+        line-height: var(--line-height);
+    }
+}

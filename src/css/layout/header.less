@@ -1,0 +1,33 @@
+@import '../mixins';
+
+/**
+ * Шапка сайта
+**/
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: var(--layout-section-padding);
+
+    &__tools {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    &__sidebar-button {
+        .container(24px);
+    }
+
+    @media @mediaLayoutDesktop {
+        &__sidebar-button {
+            display: none;
+        }
+    }
+
+    @media @mediaLayoutMobile {
+        background: var(--blue);
+    }
+}

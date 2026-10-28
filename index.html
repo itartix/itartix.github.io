@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Тестовое задание</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon">
+    <link rel="preload" href="./src/fonts/Roboto-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="page">
+        <header class="page__header header">
+            <div class="header__sidebar-button">
+                <button
+                        class="sidebar-button js-sidebar-button"
+                        aria-label="Toggle menu"
+                        aria-expanded="false"
+                        aria-controls="sidebar"
+                >
+                    <span class="sidebar-button__icon"><i></i><i></i><i></i></span>
+                </button>
+            </div>
+
+            <div class="header__tools">
+                <button class="text-button" aria-label="Some action">
+                    <svg class="symbol symbol--play" aria-hidden="true"><use xlink:href="#symbol-play"></use></svg>
+                </button>
+                <button class="text-button" aria-label="Some action">
+                    <span class="text-button__icon text-button__icon--circle"></span>
+                </button>
+                <button class="text-button" aria-label="Some action">
+                    <span class="text-button__icon text-button__icon--square"></span>
+                </button>
+            </div>
+        </header>
+
+        <aside class="page__sidebar sidebar js-sidebar" id="sidebar">
+            <div class="sidebar__content">
+                <div class="sidebar__sidebar-button">
+                    <button
+                            class="sidebar-button js-sidebar-button"
+                            aria-label="Toggle menu"
+                            aria-expanded="false"
+                            aria-controls="sidebar"
+                    >
+                        <span class="sidebar-button__icon"><i></i><i></i><i></i></span>
+                    </button>
+                </div>
+
+                <nav class="sidebar-nav">
+                    <ul class="sidebar-nav__list">
+                        <li class="sidebar-nav__item">
+                            <span class="sidebar-link sidebar-link--selected">
+                                <span class="sidebar-link__icon"></span>
+                                <span class="sidebar-link__text">Выбранный пункт меню</span>
+                            </span>
+                        </li>
+                        <li class="sidebar-nav__item">
+                            <a href="javascript:void(0);" class="sidebar-link">
+                                <span class="sidebar-link__icon"></span>
+                                <span class="sidebar-link__text">Пункт меню</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav__item">
+                            <a href="javascript:void(0);" class="sidebar-link">
+                                <span class="sidebar-link__icon"></span>
+                                <span class="sidebar-link__text">Пункт меню</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav__item">
+                            <a href="javascript:void(0);" class="sidebar-link">
+                                <span class="sidebar-link__icon"></span>
+                                <span class="sidebar-link__text">Длинное название пункта меню автоматически обрезается многоточием</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav__item">
+                            <a href="javascript:void(0);" class="sidebar-link">
+                                <span class="sidebar-link__icon"></span>
+                                <span class="sidebar-link__text">Пункт меню</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav__item">
+                            <a href="javascript:void(0);" class="sidebar-link">
+                                <span class="sidebar-link__icon"></span>
+                                <span class="sidebar-link__text">Пункт меню</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="page__main main">
+            <h1 class="main__h1">Тестовое задание</h1>
+
+            <section class="main__section">
+                <h2 class="main__h2">Сетка с фиксированным количеством колонок</h2>
+                <div class="card-list card-list--fixed">
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="main__section">
+                <h2 class="main__h2">Сетка с автозаполнением</h2>
+                <div class="card-list card-list--auto js-card-list">
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                    <a href="javascript:void(0);" class="card-list__card card">
+                        <div class="card__content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="page__footer footer">
+            <div class="footer__title">
+                What is Lorem Ipsum?
+            </div>
+            <div class="footer__text">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop  publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="/src/js/index.ts"></script>
+</body>
+
+</html>

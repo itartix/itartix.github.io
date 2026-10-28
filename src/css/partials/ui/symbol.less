@@ -1,0 +1,20 @@
+@import "../../mixins";
+
+/**
+ * SVG-иконки (спрайт из файлов в папке images/symbol, используются в верстке через use)
+ */
+
+.symbol {
+    display: block;
+    fill: currentColor;
+
+    use {
+        height: 100%;
+        width: 100%;
+    }
+
+    &--play {
+        width: 20px;
+        height: 24px;
+    }
+}

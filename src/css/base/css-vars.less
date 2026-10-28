@@ -1,0 +1,43 @@
+/**
+ * CSS переменные
+**/
+
+:root {
+    // Цвета
+    --blue: #95D9FF;
+    --blue-light: color-mix(in srgb, var(--blue) 40%, transparent);
+    --green-light: #ADFCC8;
+    --purple: #FF39EB;
+    --purple-light: #D6BDFF;
+    --black: #000;
+    --white: #FFF;
+
+    --surface-grey-color-opacity: .12;
+    --surface-grey-color: color-mix(in srgb, var(--black) calc(100% * var(--surface-grey-color-opacity)), transparent);
+
+    --surface-grey-hover-color-opacity: .24;
+    --surface-grey-hover-color: color-mix(in srgb, var(--black) calc(100% * var(--surface-grey-hover-color-opacity)), transparent);
+
+    --surface-grey-active-color-opacity: .32;
+    --surface-grey-active-color: color-mix(in srgb, var(--black) calc(100% * var(--surface-grey-active-color-opacity)), transparent);
+
+    --text-primary-color: var(--black);
+
+    --stroke-color: color-mix(in srgb, var(--black) 12%, transparent);
+
+    // Шрифты
+    --font: 'Roboto', Arial, sans-serif, -apple-system;
+
+    // Отступы
+    --layout-section-padding: 40px;
+    --grid-gap: 20px;
+
+    // Анимация
+    --transition-duration: .2s; // дефолтная анимация: ховеры и пр.
+    --transition-duration-medium: .4s; // анимация переходов между стейтами блоков: открытое / закрытое меню и пр.
+    --transition-timing-function: ease;
+
+    @media @mediaLayoutMobile {
+        --layout-section-padding: 20px;
+    }
+}

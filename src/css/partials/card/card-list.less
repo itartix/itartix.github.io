@@ -1,0 +1,57 @@
+@import '../../mixins';
+
+/**
+ * Список карточек на главной
+ */
+.card-list {
+    display: grid;
+    gap: var(--grid-gap);
+
+    // Сетке задается фиксированное количество колонок
+    // Если последний ряд не заполнен карточками полностью, он скрывается стилями
+    &--fixed {
+        @media @mediaMoreLg {
+            .template-columns(5, var(--grid-gap));
+            .hide-last-row(~'.card-list__card', 5);
+        }
+
+        @media @mediaLg and @mediaMoreMd {
+            .template-columns(4, var(--grid-gap));
+            .hide-last-row(~'.card-list__card', 4);
+        }
+
+        @media @mediaMd and @mediaMoreXs {
+            .template-columns(3, var(--grid-gap));
+            .hide-last-row(~'.card-list__card', 3);
+        }
+
+        @media @mediaXs {
+            .template-columns(2, var(--grid-gap));
+            .hide-last-row(~'.card-list__card', 2);
+        }
+    }
+
+    // Карточкам задается минимальный и максимальный размеры, сетка строится автоматически
+    // Если последний ряд не заполнен карточками полностью, он скрывается JS (навешивается класс)
+    &--auto {
+        --card-min-width: 160px;
+
+        grid-template-columns: repeat(auto-fit, minmax(min(var(--card-min-width), 100%), 1fr));
+
+        .card-list {
+            &__card {
+                &--hidden {
+                    display: none;
+                }
+            }
+        }
+
+        @media @mediaLg {
+            --card-min-width: 140px;
+        }
+
+        @media @mediaXs {
+            --card-min-width: 115px;
+        }
+    }
+}
